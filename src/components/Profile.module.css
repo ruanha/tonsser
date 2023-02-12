@@ -16,7 +16,7 @@ label {
   font-family: "Roboto", sans-serif;
   font-size: 0.875rem;
   font-weight: 700;
-  color: #7d7d7d;
+  color: var(--color-dark-grey-2, #7d7d7d);
   margin-bottom: 8px;
   margin-top: 24px;
   line-height: 20px;
@@ -27,34 +27,34 @@ input {
   width: 352px;
   height: 52px;
   padding: 16px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid var(--color-light-grey-3, #dbdbdb);
   border-radius: 4px;
-  color: #0e0e0e;
+  color: var(--color-dark, #0e0e0e);
 }
 
 input::placeholder {
-  color: #7d7d7d;
+  color: var(--color-dark-grey-2, #7d7d7d);
 }
 
 input:focus {
-  outline: 1px solid #7d7d7d;
+  outline: 1px solid var(--color-dark-grey-2, #7d7d7d);
 }
 
 input:disabled {
-  color: #dbdbdb;
+  color: var(--color-dark-grey-3, #dbdbdb);
 }
 
 input:read-only {
-  background-color: #dbdbdb;
+  background-color: var(--color-dark-grey-3, #dbdbdb);
 }
 
 input:read-only::placeholder {
-  color: #0e0e0e;
+  color: var(--color-dark, #0e0e0e);
 }
 
 .textarea {
   height: 156px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid var(--color-dark-grey-3, #dbdbdb);
   border-radius: 4px;
   line-height: 20px;
   margin: 0;
@@ -63,7 +63,7 @@ input:read-only::placeholder {
 }
 
 .errorMessage {
-  color: #ff4343;
+  color: var(--color-red, #ff4343);
   font-size: 0.875rem;
   font-weight: 400;
   margin-top: 8px;
@@ -71,7 +71,7 @@ input:read-only::placeholder {
 }
 
 .errorBox {
-  border: 1px solid #ff4343;
+  border: 1px solid var(--color-red, #ff4343);
 }
 
 .buttonGroup {
@@ -82,8 +82,8 @@ input:read-only::placeholder {
 }
 
 .button {
-  color: var(--color-dark);
-  background-color: white;
+  color: var(--color-dark, #0e0e0e);
+  background-color: var(--color-light, #fff);
   width: 168px;
   height: 40px;
   border-radius: 4px;
@@ -98,12 +98,12 @@ input:read-only::placeholder {
 
 .save {
   composes: button;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary, #00ffc8);
 }
 
 .cancel {
   composes: button;
-  border: 1px solid #b6b6b6;
+  border: 1px solid var(--color-dark-grey-1, #b6b6b6);
 }
 
 @media screen and (max-width: 768px) {

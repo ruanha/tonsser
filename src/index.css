@@ -1,6 +1,17 @@
 :root {
   --color-primary: #00ffc8;
+
+  --color-red: #ff4343;
+
   --color-dark: #0e0e0e;
+  --color-light: #ffffff;
+
+  --color-light-grey-1: #f2f2f2;
+  --color-light-grey-2: #e0e0e0;
+  --color-light-grey-3: #dbdbdb;
+
+  --color-dark-grey-1: #b6b6b6;
+  --color-dark-grey-2: #7d7d7d;
 }
 
 body {

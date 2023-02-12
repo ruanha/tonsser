@@ -1,5 +1,5 @@
 .AppHeader {
-  background-color: #f2f2f2;
+  background-color: var(--color-light-grey-1, #f2f2f2);
   height: 208px;
   display: flex;
   flex-direction: column;
