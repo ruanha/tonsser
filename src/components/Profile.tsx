@@ -45,7 +45,6 @@ export default function Profile() {
           name="last-name"
           id="last-name"
           placeholder="Last name"
-          readOnly
         />
         <label htmlFor="club">Club</label>
         <input type="text" name="club" id="club" placeholder="Eg. Tonsser FC" />
