@@ -1,9 +1,10 @@
 import styles from "./Profile.module.css";
 import { useState } from "react";
 
-export default function Profile() {
+export default function Profile({ profile }: { profile: any }) {
   const [passwordError, setPasswordError] = useState("");
   const [repeatError, setRepeatError] = useState("");
+  const [form, setForm] = useState({ ...profile, repeat: "" });
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -77,6 +78,10 @@ export default function Profile() {
           name="first-name"
           id="first-name"
           placeholder="First name"
+          value={form.firstName}
+          onChange={(event) => {
+            setForm({ ...form, firstName: event.target.value });
+          }}
         />
         <label htmlFor="last-name">Last name</label>
         <input
@@ -84,11 +89,33 @@ export default function Profile() {
           name="last-name"
           id="last-name"
           placeholder="Last name"
+          value={form.lastName}
+          onChange={(event) => {
+            setForm({ ...form, lastName: event.target.value });
+          }}
         />
         <label htmlFor="club">Club</label>
-        <input type="text" name="club" id="club" placeholder="Eg. Tonsser FC" />
+        <input
+          type="text"
+          name="club"
+          id="club"
+          placeholder="Eg. Tonsser FC"
+          value={form.club}
+          onChange={(event) => {
+            setForm({ ...form, club: event.target.value });
+          }}
+        />
         <label htmlFor="role">Role</label>
-        <input type="text" name="role" id="role" placeholder="Eg. Striker" />
+        <input
+          type="text"
+          name="role"
+          id="role"
+          placeholder="Eg. Striker"
+          value={form.role}
+          onChange={(event) => {
+            setForm({ ...form, role: event.target.value });
+          }}
+        />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="bio">Bio</label>
@@ -96,6 +123,10 @@ export default function Profile() {
           name="bio"
           className={styles.textarea}
           placeholder="..."
+          value={form.bio}
+          onChange={(event) => {
+            setForm({ ...form, bio: event.target.value });
+          }}
         ></textarea>
         <label htmlFor="password">New Password</label>
         <input
@@ -104,6 +135,10 @@ export default function Profile() {
           id="password"
           placeholder="Password"
           className={passwordError && styles.errorBox}
+          value={form.password}
+          onChange={(event) => {
+            setForm({ ...form, password: event.target.value });
+          }}
         />
         {passwordError && (
           <p className={styles.errorMessage}>{passwordError}</p>
@@ -115,6 +150,10 @@ export default function Profile() {
           id="repeat-password"
           placeholder="Repeat password"
           className={repeatError && styles.errorBox}
+          value={form.repeat}
+          onChange={(event) => {
+            setForm({ ...form, repeat: event.target.value });
+          }}
         />
         {repeatError && <p className={styles.errorMessage}>{repeatError}</p>}
         <div className={styles.buttonGroup}>

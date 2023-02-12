@@ -6,7 +6,16 @@ function App() {
     <div>
       <header className={styles.AppHeader}>HEADER</header>
       <main>
-        <Profile />
+        <Profile
+          profile={{
+            firstName: "John",
+            lastName: "Doe",
+            club: "Tonsser",
+            role: "Developer",
+            bio: "I am a developer",
+            password: "password",
+          }}
+        />
       </main>
     </div>
   );
