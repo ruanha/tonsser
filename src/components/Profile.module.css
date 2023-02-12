@@ -73,3 +73,17 @@ input {
   composes: button;
   border: 1px solid #b6b6b6;
 }
+
+@media screen and (max-width: 768px) {
+  .form {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  input {
+    width: 80vw;
+  }
+  textarea {
+    width: 80vw;
+  }
+}
