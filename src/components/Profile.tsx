@@ -25,7 +25,11 @@ export default function Profile() {
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="bio">Bio</label>
-        <textarea name="bio" className={styles.textarea}></textarea>
+        <textarea
+          name="bio"
+          className={styles.textarea}
+          placeholder="..."
+        ></textarea>
         <label htmlFor="password">New Password</label>
         <input
           type="password"
