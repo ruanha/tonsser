@@ -11,3 +11,32 @@
   display: flex;
   flex-direction: column;
 }
+
+label {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #7d7d7d;
+  margin-bottom: 8px;
+  margin-top: 24px;
+  line-height: 20px;
+}
+
+input {
+  width: 352px;
+  height: 52px;
+  padding: 16px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  color: #0e0e0e;
+}
+
+.textarea {
+  height: 156px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  line-height: 20px;
+  margin: 0;
+  padding: 16px;
+  resize: none;
+}
