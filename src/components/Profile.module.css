@@ -62,6 +62,18 @@ input:read-only::placeholder {
   resize: none;
 }
 
+.errorMessage {
+  color: #ff4343;
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.errorBox {
+  border: 1px solid #ff4343;
+}
+
 .buttonGroup {
   display: flex;
   flex-direction: row;
