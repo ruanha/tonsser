@@ -1,5 +1,7 @@
 import styles from "./Profile.module.css";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Profile({ profile }: { profile: any }) {
   const [passwordError, setPasswordError] = useState("");
@@ -15,57 +17,64 @@ export default function Profile({ profile }: { profile: any }) {
     const repeatPassword = form.elements.namedItem(
       "repeat-password"
     ) as HTMLInputElement;
-    validatePassword(password.value, repeatPassword.value);
 
-    if (passwordError || repeatError) {
-      return;
-    }
+    if (
+      passwordIsValid(password.value) &&
+      repeatIsValid(password.value, repeatPassword.value)
+    ) {
+      // get rest of the values from form
+      const firstName = form.elements.namedItem(
+        "first-name"
+      ) as HTMLInputElement;
+      const lastName = form.elements.namedItem("last-name") as HTMLInputElement;
+      const club = form.elements.namedItem("club") as HTMLInputElement;
+      const role = form.elements.namedItem("role") as HTMLInputElement;
+      const bio = form.elements.namedItem("bio") as HTMLInputElement;
 
-    // get rest of the values from form
-    const firstName = form.elements.namedItem("first-name") as HTMLInputElement;
-    const lastName = form.elements.namedItem("last-name") as HTMLInputElement;
-    const club = form.elements.namedItem("club") as HTMLInputElement;
-    const role = form.elements.namedItem("role") as HTMLInputElement;
-    const bio = form.elements.namedItem("bio") as HTMLInputElement;
+      // combine first name, last name, club, role, bio, password into one object
+      const data = {
+        firstName: firstName.value,
+        lastName: lastName.value,
+        club: club.value,
+        role: role.value,
+        bio: bio.value,
+        password: password.value,
+      };
 
-    // combine first name, last name, club, role, bio, password into one object
-    const data = {
-      firstName: firstName.value,
-      lastName: lastName.value,
-      club: club.value,
-      role: role.value,
-      bio: bio.value,
-      password: password.value,
-    };
-
-    // use fetch to send data to server
-    mockFetch("https://api.tonsser.com/profile", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+      // use fetch to send data to server
+      const response = mockFetch("https://api.tonsser.com/profile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
+
+      toast.promise(response, {
+        pending: "Changes are being saved...",
+        success: "Changes have been successfully saved!",
+        error: "Something went wrong. Please try again later.",
+      });
+    } else {
+      if (!passwordIsValid(password.value)) {
+        setPasswordError("Password must be at least 8 characters long.");
+      } else {
+        setPasswordError("");
+      }
+      if (!repeatIsValid(password.value, repeatPassword.value)) {
+        setRepeatError("Passwords do not match.");
+      } else {
+        setRepeatError("");
+      }
+    }
   }
 
-  function validatePassword(password: string, repeatPassword: string) {
-    if (password.length < 8) {
-      setPasswordError("Password must be at least 8 characters");
-    } else {
-      setPasswordError("");
-    }
+  function passwordIsValid(password: string) {
+    return password.length >= 8;
+  }
 
-    if (password !== repeatPassword) {
-      setRepeatError("Passwords must match");
-    } else {
-      setRepeatError("");
-    }
+  function repeatIsValid(password: string, repeatPassword: string) {
+    return password === repeatPassword;
   }
 
   return (

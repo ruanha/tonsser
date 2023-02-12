@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import styles from "./App.module.css";
 import Profile from "./components/Profile";
 
@@ -13,9 +14,9 @@ function App() {
             club: "Tonsser",
             role: "Developer",
             bio: "I am a developer",
-            password: "password",
           }}
         />
+        <ToastContainer />
       </main>
     </div>
   );
