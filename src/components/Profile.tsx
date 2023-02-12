@@ -183,36 +183,3 @@ function mockFetch(_url: string, _options: any): Promise<any> {
     }, 2000);
   });
 }
-
-function FormField({
-  label,
-  type,
-  name,
-  placeholder,
-  value,
-  onChange,
-  error,
-}: {
-  label: string;
-  type: string;
-  name: string;
-  placeholder: string;
-  value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  error: string;
-}) {
-  return (
-    <div>
-      <label htmlFor={name}>{label}</label>
-      <input
-        type={type}
-        name={name}
-        id={name}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-      />
-      {error && <p className="error">{error}</p>}
-    </div>
-  );
-}
