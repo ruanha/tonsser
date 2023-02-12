@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tonsser/static/css/main.2b1bf078.css",
+    "main.js": "/tonsser/static/js/main.80c6ec3d.js",
+    "static/js/787.c77c3798.chunk.js": "/tonsser/static/js/787.c77c3798.chunk.js",
+    "index.html": "/tonsser/index.html",
+    "main.2b1bf078.css.map": "/tonsser/static/css/main.2b1bf078.css.map",
+    "main.80c6ec3d.js.map": "/tonsser/static/js/main.80c6ec3d.js.map",
+    "787.c77c3798.chunk.js.map": "/tonsser/static/js/787.c77c3798.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2b1bf078.css",
+    "static/js/main.80c6ec3d.js"
+  ]
+}
