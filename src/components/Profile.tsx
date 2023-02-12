@@ -44,9 +44,9 @@ export default function Profile() {
           id="repeat-password"
           placeholder="Repeat password"
         />
-        <div>
-          <button>Cancel</button>
-          <button>Save</button>
+        <div className={styles.buttonGroup}>
+          <button className={styles.cancel}>Cancel</button>
+          <button className={styles.save}>Save</button>
         </div>
       </div>
     </form>

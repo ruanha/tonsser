@@ -40,3 +40,35 @@ input {
   padding: 16px;
   resize: none;
 }
+
+.buttonGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 52px;
+}
+
+.button {
+  color: var(--color-dark);
+  background-color: white;
+  width: 168px;
+  height: 40px;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+}
+
+.save {
+  composes: button;
+  background-color: var(--color-primary);
+}
+
+.cancel {
+  composes: button;
+  border: 1px solid #b6b6b6;
+}
