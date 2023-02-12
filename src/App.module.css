@@ -1,0 +1,8 @@
+.AppHeader {
+  background-color: #f2f2f2;
+  height: 208px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
