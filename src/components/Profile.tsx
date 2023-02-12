@@ -39,14 +39,13 @@ export default function Profile({ profile }: { profile: any }) {
     };
 
     // use fetch to send data to server
-    fetch("https://api.tonsser.com/profile", {
+    mockFetch("https://api.tonsser.com/profile", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
       })
@@ -163,4 +162,14 @@ export default function Profile({ profile }: { profile: any }) {
       </div>
     </form>
   );
+}
+
+function mockFetch(_url: string, _options: any): Promise<any> {
+  return new Promise((resolve, _reject) => {
+    setTimeout(() => {
+      resolve({
+        ok: true,
+      });
+    }, 2000);
+  });
 }
