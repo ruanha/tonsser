@@ -134,6 +134,7 @@ export default function Profile({ profile }: { profile: any }) {
         <label htmlFor="bio">Bio</label>
         <textarea
           name="bio"
+          id="bio"
           className={styles.textarea}
           placeholder="..."
           value={form.bio}
