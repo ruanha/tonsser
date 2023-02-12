@@ -8,11 +8,50 @@ export default function Profile() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
+
+    // get password and repeat from form and validate password
     const password = form.elements.namedItem("password") as HTMLInputElement;
     const repeatPassword = form.elements.namedItem(
       "repeat-password"
     ) as HTMLInputElement;
     validatePassword(password.value, repeatPassword.value);
+
+    if (passwordError || repeatError) {
+      return;
+    }
+
+    // get rest of the values from form
+    const firstName = form.elements.namedItem("first-name") as HTMLInputElement;
+    const lastName = form.elements.namedItem("last-name") as HTMLInputElement;
+    const club = form.elements.namedItem("club") as HTMLInputElement;
+    const role = form.elements.namedItem("role") as HTMLInputElement;
+    const bio = form.elements.namedItem("bio") as HTMLInputElement;
+
+    // combine first name, last name, club, role, bio, password into one object
+    const data = {
+      firstName: firstName.value,
+      lastName: lastName.value,
+      club: club.value,
+      role: role.value,
+      bio: bio.value,
+      password: password.value,
+    };
+
+    // use fetch to send data to server
+    fetch("https://api.tonsser.com/profile", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
 
   function validatePassword(password: string, repeatPassword: string) {
