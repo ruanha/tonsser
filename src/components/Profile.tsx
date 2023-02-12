@@ -142,7 +142,7 @@ export default function Profile({ profile }: { profile: any }) {
             setForm({ ...form, bio: event.target.value });
           }}
         ></textarea>
-        <label htmlFor="password">New Password</label>
+        <label htmlFor="password">New password</label>
         <input
           type="password"
           name="password"
@@ -157,7 +157,7 @@ export default function Profile({ profile }: { profile: any }) {
         {passwordError && (
           <p className={styles.errorMessage}>{passwordError}</p>
         )}
-        <label htmlFor="repeat-password">Repeat password</label>
+        <label htmlFor="repeat-password">Repeat new password</label>
         <input
           type="password"
           name="repat-password"
