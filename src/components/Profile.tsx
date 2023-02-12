@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function Profile({ profile }: { profile: any }) {
   const [passwordError, setPasswordError] = useState("");
   const [repeatError, setRepeatError] = useState("");
-  const [form, setForm] = useState({ ...profile, repeat: "" });
+  const [form, setForm] = useState({ ...profile, password: "", repeat: "" });
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -50,11 +50,15 @@ export default function Profile({ profile }: { profile: any }) {
         body: JSON.stringify(data),
       });
 
-      toast.promise(response, {
-        pending: "Changes are being saved...",
-        success: "Changes have been successfully saved!",
-        error: "Something went wrong. Please try again later.",
-      });
+      toast.promise(
+        response,
+        {
+          pending: "Changes are being saved...",
+          success: "Changes have been successfully saved!",
+          error: "Something went wrong. Please try again later.",
+        },
+        { hideProgressBar: true }
+      );
     } else {
       if (!passwordIsValid(password.value)) {
         setPasswordError("Password must be at least 8 characters long.");
