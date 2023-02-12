@@ -9,11 +9,11 @@ function App() {
       <main>
         <Profile
           profile={{
-            firstName: "John",
-            lastName: "Doe",
-            club: "Tonsser",
-            role: "Developer",
-            bio: "I am a developer",
+            firstName: "Rune",
+            lastName: "Hartvig",
+            club: "Tonsser FC",
+            role: "Defender",
+            bio: "I am a developer and a defender on the Tonsser team.",
           }}
         />
         <ToastContainer />
