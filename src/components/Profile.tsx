@@ -91,6 +91,7 @@ export default function Profile({ profile }: { profile: any }) {
           onChange={(event) => {
             setForm({ ...form, firstName: event.target.value });
           }}
+          readOnly
         />
         <label htmlFor="last-name">Last name</label>
         <input
@@ -102,6 +103,7 @@ export default function Profile({ profile }: { profile: any }) {
           onChange={(event) => {
             setForm({ ...form, lastName: event.target.value });
           }}
+          readOnly
         />
         <label htmlFor="club">Club</label>
         <input
@@ -113,6 +115,7 @@ export default function Profile({ profile }: { profile: any }) {
           onChange={(event) => {
             setForm({ ...form, club: event.target.value });
           }}
+          readOnly
         />
         <label htmlFor="role">Role</label>
         <input
@@ -124,6 +127,7 @@ export default function Profile({ profile }: { profile: any }) {
           onChange={(event) => {
             setForm({ ...form, role: event.target.value });
           }}
+          readOnly
         />
       </div>
       <div className={styles.formGroup}>
